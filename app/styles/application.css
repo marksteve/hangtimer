@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+}
+
+body, input, button {
+  font: 15vw/1.5 sans-serif;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  display: block;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.timer {
+  width: 100vw;
+  height: 70vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+}
+
+.count {
+  box-sizing: border-box;
+  width: 25vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.count > .count-bg {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all ease-in-out .2s;
+}
+
+.count.active.hang > .count-bg {
+  background: #ff4136;
+}
+
+.count.active.rest > .count-bg {
+  background: #2ecc40;
+}
+
+.count.active.recover > .count-bg {
+  background: #7fdbff;
+}
+
+.count > button {
+  width: 10vw;
+  height: 10vw;
+  background: url(./images/arrow.svg) no-repeat center;
+  background-size: contain;
+}
+
+.count > .down {
+  transform: rotate(180deg);
+}
+
+.count > .value {
+  flex: 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count > .label {
+  font-size: 5vw;
+  display: block;
+  padding: 5vw 0;
+}
+
+.app > button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle, .stop {
+  width: 100vw;
+  height: 30vh;
+}
+
+.toggle.stopped {
+  background: url(./images/play.svg) no-repeat center;
+  background-size: 25vw;
+}
+
+.toggle.started {
+  background: url(./images/stop.svg) no-repeat center;
+  background-size: 25vw;
+}
+
