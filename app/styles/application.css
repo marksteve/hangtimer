@@ -4,6 +4,7 @@ body {
 
 body, input, button {
   font: 15vw/1.5 sans-serif;
+  color: #333;
 }
 
 button {
@@ -54,19 +55,19 @@ a:focus, button:focus {
 }
 
 .count.hang > .count-bg {
-  background: #ff4136;
+  background: #FE5F55;
 }
 
 .count.rest > .count-bg {
-  background: #2ecc40;
+  background: #C7EFCF;
 }
 
 .count.reps > .count-bg {
-  background: #ffdc00;
+  background: #D6D1B1;
 }
 
 .count.recover > .count-bg {
-  background: #7fdbff;
+  background: #EEF5DB;
 }
 
 .count.active > .count-bg {
