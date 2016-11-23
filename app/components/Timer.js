@@ -56,10 +56,10 @@ export default class Timer extends React.Component {
   constructor (props) {
     super(props)
     this.startSound = new Howl({
-      src: [`./audio/rep_start.mp3`]
+      src: ['./audio/rep_start.mp3']
     })
     this.endSound = new Howl({
-      src: [`./audio/rep_end.mp3`]
+      src: ['./audio/rep_end.mp3']
     })
   }
   componentDidUpdate (prevProps) {

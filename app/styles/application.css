@@ -22,6 +22,7 @@ a:focus, button:focus {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .timer {
@@ -120,3 +121,15 @@ a:focus, button:focus {
   background-size: 25vw;
 }
 
+.countdown {
+  font-size: 50vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

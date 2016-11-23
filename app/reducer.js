@@ -70,6 +70,32 @@ export default combineReducers({
         count: null
       }
     }
-  }, { counts: {} })
+  }, { counts: {} }),
+
+  countdown: buildReducer({
+    startCountdown (state, { interval }) {
+      const prevTime = new Date().getTime()
+      return {
+        count: 3,
+        interval,
+        prevTime
+      }
+    },
+    countdown (state) {
+      const prevTime = new Date().getTime()
+      const dt = prevTime - state.prevTime
+      const count = Math.max(0, state.count - (dt / 1000))
+      if (count > 0) {
+        return {
+          ...state,
+          count,
+          prevTime
+        }
+      } else {
+        clearInterval(state.interval)
+        return {}
+      }
+    }
+  }, {})
 })
 

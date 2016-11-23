@@ -10,6 +10,7 @@ const ConnectedApp = connect(state => state)(App)
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = createStore(reducer, {
+    countdown: 3,
     settings: {
       hang: 7,
       rest: 3,
