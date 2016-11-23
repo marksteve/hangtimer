@@ -4,7 +4,7 @@ body {
 
 body, input, button {
   font: 15vw/1.5 sans-serif;
-  color: #333;
+  color: #5E6973;
 }
 
 button {
@@ -72,6 +72,10 @@ a:focus, button:focus {
   font-size: inherit;
 }
 
+.started .count.reps > .count-bg {
+  display: none;
+}
+
 .count > .count-bg {
   pointer-events: none;
   position: absolute;
@@ -90,19 +94,19 @@ a:focus, button:focus {
 }
 
 .count.hang > .count-bg {
-  background: #FE5F55;
+  background: #7CFFC4;
 }
 
 .count.rest > .count-bg {
-  background: #C7EFCF;
+  background: #6ABEA7;
 }
 
 .count.reps > .count-bg {
-  background: #D6D1B1;
+  background: #BDFFFD;
 }
 
 .count.recover > .count-bg {
-  background: #EEF5DB;
+  background: #9FFFF5;
 }
 
 .count > button {
@@ -124,7 +128,9 @@ a:focus, button:focus {
 }
 
 .count > .label {
-  font-size: 5vw;
+  font-size: 4vw;
+  font-weight: bold;
+  text-transform: uppercase;
   display: block;
   padding: 5vw 0;
 }

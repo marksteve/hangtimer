@@ -36,6 +36,8 @@ class Count extends React.Component {
     const isStopped = state === 'stopped'
     const counts = isStopped ? settings : timer.counts
     const value = counts[name]
+    let roundValue = Math.ceil(value)
+    roundValue = roundValue || (name === 'reps') ? roundValue : ''
     const progress = value / settings[name]
     return <div className={cn('count', name, { active: name === timer.count })}>
       <div className='count-bg' style={{ height: (progress * 100) + '%' }} />
@@ -43,7 +45,7 @@ class Count extends React.Component {
       {isStopped
         ? <button className='up' onClick={this.update.bind(this, 'inc', 1)} />
         : null}
-      <div className='value'>{Math.ceil(value) || ''}</div>
+      <div className='value'>{roundValue}</div>
       {isStopped
         ? <button className='down' onClick={this.update.bind(this, 'dec', 1)} />
         : null}
