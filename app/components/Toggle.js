@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 export default class Toggle extends React.Component {
   render () {
-    return <button className={cn('toggle', this.props.state)} onClick={this.toggle.bind(this)} />
+    return <button className='toggle' onClick={this.toggle.bind(this)} />
   }
   toggle (e) {
     e.preventDefault()

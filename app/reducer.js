@@ -33,8 +33,10 @@ export default combineReducers({
     update (state) {
       const prevTime = new Date().getTime()
       const dt = prevTime - state.prevTime
-      let { count, settings, counts } = state
+      let { rep, count, settings, counts } = state
       let { hang, rest, reps, recover } = counts
+      rep = rep || 1
+      reps = settings.reps - rep
       if (counts.hang > 0) {
         count = 'hang'
         hang = Math.max(0, counts.hang - (dt / 1000))
@@ -43,9 +45,9 @@ export default combineReducers({
         rest = Math.max(0, counts.rest - (dt / 1000))
       } else if (counts.reps > 0) {
         count = 'reps'
-        reps = counts.reps - 1
         hang = settings.hang
         rest = settings.rest
+        rep++
       } else if (counts.recover > 0) {
         count = 'recover'
         recover = Math.max(0, counts.recover - (dt / 60 / 1000))
@@ -59,6 +61,7 @@ export default combineReducers({
         ...state,
         counts: { hang, rest, reps, recover },
         count,
+        rep,
         prevTime
       }
     },

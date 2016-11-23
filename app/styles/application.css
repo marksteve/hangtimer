@@ -34,13 +34,42 @@ a:focus, button:focus {
 }
 
 .count {
-  box-sizing: border-box;
-  width: 25vw;
-  padding: 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.stopped .count {
+  box-sizing: border-box;
   position: relative;
+  width: 25vw;
+  padding: 2vw;
+}
+
+.started .count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 70vh;
+  opacity: 0;
+  pointer-events: none;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50vw;
+}
+
+.started .count.active {
+  opacity: 1;
+}
+
+.started .count.reps {
+  width: 30vw;
+  height: 30vh;
+  top: 70vh;
+  left: 70vw;
+  opacity: 1;
+  font-size: inherit;
 }
 
 .count > .count-bg {
@@ -53,6 +82,11 @@ a:focus, button:focus {
   z-index: -1;
   transition: all linear .2s;
   opacity: 0.2;
+}
+
+.count.active > .count-bg,
+.started .count.reps > .count-bg {
+  opacity: 1;
 }
 
 .count.hang > .count-bg {
@@ -69,10 +103,6 @@ a:focus, button:focus {
 
 .count.recover > .count-bg {
   background: #EEF5DB;
-}
-
-.count.active > .count-bg {
-  opacity: 1;
 }
 
 .count > button {
@@ -106,17 +136,21 @@ a:focus, button:focus {
   align-items: center;
 }
 
-.toggle, .stop {
+.toggle {
   width: 100vw;
   height: 30vh;
 }
 
-.toggle.stopped {
+.started {
+  width: 70vw;
+}
+
+.stopped .toggle {
   background: url(./images/play.svg) no-repeat center;
   background-size: 25vw;
 }
 
-.toggle.started {
+.started .toggle {
   background: url(./images/stop.svg) no-repeat center;
   background-size: 25vw;
 }

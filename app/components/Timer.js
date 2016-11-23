@@ -43,7 +43,7 @@ class Count extends React.Component {
       {isStopped
         ? <button className='up' onClick={this.update.bind(this, 'inc', 1)} />
         : null}
-      <div className='value'>{Math.ceil(value)}</div>
+      <div className='value'>{Math.ceil(value) || ''}</div>
       {isStopped
         ? <button className='down' onClick={this.update.bind(this, 'dec', 1)} />
         : null}
@@ -79,7 +79,9 @@ export default class Timer extends React.Component {
     return <div className='timer'>
       <Count name='hang' label='Hang' unit='secs' min={1} max={99} {...this.props} />
       <Count name='rest' label='Rest' unit='secs' min={1} max={99} {...this.props} />
-      <Count name='reps' label='Reps' unit='total' min={1} max={99} {...this.props} />
+      {this.props.state === 'started'
+        ? <Count name='reps' label='Reps' unit='left' min={1} max={99} {...this.props} />
+        : <Count name='reps' label='Reps' unit='total' min={1} max={99} {...this.props} />}
       <Count name='recover' label='Recover' unit='mins' min={1} max={99} {...this.props} />
     </div>
   }
