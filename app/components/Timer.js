@@ -10,8 +10,10 @@ class Count extends React.Component {
     })
   }
   componentDidUpdate (prevProps) {
-    if (Math.ceil(this.props.timer.counts[this.props.name]) !==
-        Math.ceil(prevProps.timer.counts[prevProps.name])) {
+    const value = this.props.timer.counts[this.props.name]
+    const valueChanged = Math.ceil(value) !==
+      Math.ceil(prevProps.timer.counts[prevProps.name])
+    if (value > 0 && valueChanged) {
       this.sound.play()
     }
   }
