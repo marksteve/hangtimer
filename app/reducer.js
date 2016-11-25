@@ -79,7 +79,7 @@ export default combineReducers({
     startCountdown (state, { interval }) {
       const prevTime = new Date().getTime()
       return {
-        count: 3,
+        count: 5,
         interval,
         prevTime
       }
