@@ -1,4 +1,10 @@
 module.exports = {
+  npm: {
+    styles: {
+      slideout: ['index.css']
+    }
+  },
+
   files: {
     javascripts: {
       joinTo: {
@@ -12,4 +18,4 @@ module.exports = {
   plugins: {
     babel: {presets: ['es2015', 'react', 'stage-0']}
   }
-};
+}

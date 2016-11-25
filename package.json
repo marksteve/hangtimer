@@ -15,11 +15,13 @@
     "babel-preset-stage-0": "^6.16.0",
     "build-reducer": "^1.2.0",
     "classnames": "^2.2.5",
+    "hat": "0.0.3",
     "howler": "^2.0.1",
     "react": "~15.3.0",
     "react-dom": "~15.3.0",
     "react-redux": "^4.4.6",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "slideout": "^0.1.12"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",

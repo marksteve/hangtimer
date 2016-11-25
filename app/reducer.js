@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import buildReducer from 'build-reducer'
+import hat from 'hat'
 
 export default combineReducers({
   state: buildReducer({
@@ -16,6 +17,13 @@ export default combineReducers({
       return {
         ...state,
         [name]: state[name] + (inc || 0) - (dec || 0)
+      }
+    },
+    selectProfile (state, { profile }) {
+      if (!profile) return state
+      return {
+        ...state,
+        ...profile.settings
       }
     }
   }, {}),
@@ -99,6 +107,37 @@ export default combineReducers({
         return {}
       }
     }
-  }, {})
+  }, {}),
+
+  slideout: buildReducer({
+    setSlideout (state, { menu, panel, instance }) {
+      return {
+        ...state,
+        panel: panel || state.panel,
+        menu: menu || state.menu,
+        instance: instance || state.instance
+      }
+    }
+  }, {}),
+
+  profiles: buildReducer({
+    saveProfile (state, { name, settings }) {
+      const nextState = state.concat({ id: hat(), name, settings })
+      window.localStorage.profiles = JSON.stringify(nextState)
+      return nextState
+    },
+    delProfile (state, { profile }) {
+      return state.filter(p => p.id !== profile.id)
+    }
+  }, []),
+
+  profile: buildReducer({
+    selectProfile (state, { profile }) {
+      return profile
+    },
+    delProfile (state) {
+      return null
+    }
+  }, null)
 })
 

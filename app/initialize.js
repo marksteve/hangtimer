@@ -10,6 +10,7 @@ const ConnectedApp = connect(state => state)(App)
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = createStore(reducer, {
+    profiles: JSON.parse(window.localStorage.profiles || '[]'),
     countdown: 3,
     settings: {
       hang: 7,
@@ -20,5 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   ReactDOM.render(<Provider store={store}>
     <ConnectedApp />
-  </Provider>, document.querySelector('#app'))
+  </Provider>, document.querySelector('main'))
 })

@@ -18,11 +18,23 @@ a:focus, button:focus {
   outline: none;
 }
 
-.app {
+.panel {
+  position: relative;
+  background: white;
+}
+
+.main {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
   position: relative;
+}
+
+.main > button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .timer {
@@ -60,6 +72,7 @@ a:focus, button:focus {
 }
 
 .started .count.active {
+  z-index: 1;
   opacity: 1;
 }
 
@@ -67,7 +80,7 @@ a:focus, button:focus {
   width: 30vw;
   height: 30vh;
   top: 70vh;
-  left: 70vw;
+  left: 0;
   opacity: 1;
   font-size: inherit;
 }
@@ -85,7 +98,7 @@ a:focus, button:focus {
   height: 100%;
   z-index: -1;
   transition: all linear .2s;
-  opacity: 0.2;
+  opacity: 0;
 }
 
 .count.active > .count-bg,
@@ -135,20 +148,9 @@ a:focus, button:focus {
   padding: 5vw 0;
 }
 
-.app > button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .toggle {
   width: 100vw;
   height: 30vh;
-}
-
-.started {
-  width: 70vw;
 }
 
 .stopped .toggle {
@@ -172,4 +174,41 @@ a:focus, button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.menu {
+  background: #5E6973;
+  color: white;
+}
+
+.menu a {
+  font-size: 8vw;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 0 5vw;
+  line-height: 2;
+}
+
+.menu > a {
+  background: #75838F;
+  border-bottom: 1px solid #5E6973;
+}
+
+.menu > .profiles > a {
+  border-bottom: 1px solid #75838F;
+}
+
+.menu > .profiles > a.-active {
+  font-weight: bold;
+}
+
+.profile {
+  position: absolute;
+  bottom: 25vh;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  pointer-events: none;
+  font-size: 5vw;
 }
